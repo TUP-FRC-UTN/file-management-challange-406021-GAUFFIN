@@ -1,0 +1,47 @@
+<div class="card p-3 m-3">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="flexCheckDefault"
+            [checked]="allChecked"
+            (change)="checkAll()"
+          />
+        </th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Dueños</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (file of files; track file.id) {
+
+      <tr>
+        <th scope="row">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="flexCheckDefault"
+            [(checked)]="file.checked"
+          />
+          {{ file.id }}
+        </th>
+        <td>{{ file.name }}</td>
+        <td>{{ file.creation | date : "MMM dd, yyyy " }}</td>
+
+        <td>
+          <app-ouners-avatar-list
+            [owners]="file.owners"
+          ></app-ouners-avatar-list>
+        </td>
+      </tr>
+
+      }
+    </tbody>
+  </table>
+</div>

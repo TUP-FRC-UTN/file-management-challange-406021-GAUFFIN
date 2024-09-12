@@ -7,6 +7,10 @@ export interface FileItem {
   parentId?: string;
 }
 
+export interface FileForRow extends FileItem {
+  checked: boolean;
+}
+
 export interface FileOwner {
   name: string;
   avatarUrl: string;
@@ -14,5 +18,5 @@ export interface FileOwner {
 
 export enum FileType {
   FOLDER,
-  FILE
+  FILE,
 }

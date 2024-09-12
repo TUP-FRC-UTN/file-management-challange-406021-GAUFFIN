@@ -1,0 +1,13 @@
+<!-- Button trigger modal -->
+
+<app-new-file [isModalOpen]="isModalOpen"></app-new-file>
+
+<app-actions-button
+  (deleteFilesEvent)="deleteFiles()"
+  (newFileEvent)="openModal()"
+></app-actions-button>
+<app-files-list
+  [files]="filesForRows"
+  [allChecked]="allFilesChecked"
+  (checkUnckeckAll)="checkUncheckAllFiles()"
+></app-files-list>
